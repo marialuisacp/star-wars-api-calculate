@@ -11,7 +11,7 @@ const getTimeByString = (word) => {
 			return days;
 		case 'week':
 			return 7 * days;
-		case 'mounth':
+		case 'month':
 			return 30 * days;
 		case 'year':
 			return 365 * days;
