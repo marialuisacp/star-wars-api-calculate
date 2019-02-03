@@ -3,7 +3,7 @@ const bodyParser = require('body-parser');
 
 const app = express();
 const routes = require('./routes/index');
-const port = 3000;
+const port = process.env.PORT || 8888;
 
 app.use((req, res, next) => {
   res.setHeader('Access-Control-Allow-Origin', '*');
