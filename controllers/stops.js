@@ -36,6 +36,10 @@ const convertToTimesHour = (stg) => {
 	return getTimeByString(word) * count;
 }
 
+const getNameImg = (stg) => {
+	return stg.replace(/\s/g, '-').toLowerCase();
+}
+
 const getTimeByMGLT = (starshipCapacity, totalMGLT) => {
 	time = totalMGLT / starshipCapacity;
 	return time;
@@ -48,6 +52,7 @@ exports.getStops = async (req, res) => {
 	if (starships) {
 		starships.map((starship) => {
 			starship.stops = getTimeByMGLT(starship.MGLT, MGLT_calculate) / convertToTimesHour(starship.consumables);
+			starship.img_name = getNameImg(starship.name);
 		});
 		res.status(200).json(starships);
 	} else {
